@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 84% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 8%;
+
+    --radius: 0rem;
+
+    --ufc-red: 0 84% 50%;
+    --ufc-black: 0 0% 8%;
+    --ufc-dark: 0 0% 12%;
+    --ufc-gray: 0 0% 45%;
+    --ufc-light-gray: 0 0% 96%;
+    --ufc-green: 142 76% 36%;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 8%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 84% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm font-bold tracking-wider uppercase transition-colors hover:text-white/80;
+  }
+
+  .nav-link-active {
+    @apply text-white relative;
+  }
+
+  .nav-link-active::after {
+    content: '';
+    @apply absolute -bottom-2 left-0 w-full h-0.5 bg-[hsl(var(--ufc-red))];
+  }
+
+  .weight-class-label {
+    @apply text-xs font-bold tracking-wider uppercase text-[hsl(var(--ufc-red))];
+  }
+
+  .champion-name {
+    font-family: 'Anton', sans-serif;
+    @apply text-2xl md:text-3xl uppercase tracking-tight leading-none;
+  }
+
+  .ranking-number {
+    @apply text-sm font-bold text-[hsl(var(--ufc-gray))] w-6;
+  }
+
+  .athlete-name-link {
+    @apply text-sm hover:text-[hsl(var(--ufc-red))] transition-colors cursor-pointer;
+  }
+
+  .movement-up {
+    @apply text-[hsl(var(--ufc-green))];
+  }
+
+  .movement-down {
+    @apply text-[hsl(var(--ufc-red))];
+  }
+}
