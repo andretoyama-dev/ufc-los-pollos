@@ -8,6 +8,10 @@ import fighterNeguinho from "@/assets/Sononcio_PESO-NEGUINHO.jpg";
 import fighterGordim from "@/assets/Lima_PESO-GORDIM.png";
 import fighterPauNoCu from "@/assets/Nexty_e_Nyped_PESO-PAUNOCU.jpg";
 import fighterGeladeira from "@/assets/Geraldeli_PESO-GELADEIRA.png";
+import fighterMansidao from "@/assets/Icaro_PESO-MANSIDAO.jpg";
+import fighterMulato from "@/assets/Costa_PESO-MULATO.jpg";
+import fighterCoronhada from "@/assets/Jayz_PESO-CORONHADA.jpg";
+import fighterTagarela from "@/assets/Orlandim_PESO-TAGARELA.jpg";
 
 const rankingsData = [
   {
@@ -81,7 +85,7 @@ const rankingsData = [
 
 const rankingsData2 = [
   {
-    weightClass: "PESO-PAU-NO-CU",
+    weightClass: "PESO-LUPATOS",
     championName: "NEXTY E NYPED",
     championImage: fighterPauNoCu,
     athletes: [
@@ -124,6 +128,97 @@ const rankingsData2 = [
       { rank: 15, name: "Jhonata Diniz" },
     ],
   },
+  {
+    weightClass: "PESO-MANSIDAO",
+    championName: "ICARO",
+    championImage: fighterMansidao,
+    athletes: [
+      { rank: 1, name: "Charles Oliveira" },
+      { rank: 2, name: "Justin Gaethje" },
+      { rank: 3, name: "Dustin Poirier" },
+      { rank: 4, name: "Arman Tsarukyan" },
+      { rank: 5, name: "Michael Chandler" },
+      { rank: 6, name: "Beneil Dariush" },
+      { rank: 7, name: "Mateusz Gamrot" },
+      { rank: 8, name: "Rafael Fiziev" },
+      { rank: 9, name: "Renato Moicano" },
+      { rank: 10, name: "Jalin Turner" },
+      { rank: 11, name: "Dan Hooker" },
+      { rank: 12, name: "Benoît Saint Denis" },
+      { rank: 13, name: "Paddy Pimblett" },
+      { rank: 14, name: "Bobby Green" },
+      { rank: 15, name: "Drew Dober" },
+    ],
+  },
+];
+
+const rankingsData3 = [
+  {
+    weightClass: "PESO-MULATO",
+    championName: "COSTA",
+    championImage: fighterMulato,
+    athletes: [
+      { rank: 1, name: "Leon Edwards" },
+      { rank: 2, name: "Kamaru Usman" },
+      { rank: 3, name: "Shavkat Rakhmonov" },
+      { rank: 4, name: "Colby Covington" },
+      { rank: 5, name: "Jack Della Maddalena" },
+      { rank: 6, name: "Gilbert Burns" },
+      { rank: 7, name: "Ian Machado Garry" },
+      { rank: 8, name: "Sean Brady" },
+      { rank: 9, name: "Stephen Thompson" },
+      { rank: 10, name: "Geoff Neal" },
+      { rank: 11, name: "Vicente Luque" },
+      { rank: 12, name: "Kevin Holland" },
+      { rank: 13, name: "Neil Magny" },
+      { rank: 14, name: "Michael Morales" },
+      { rank: 15, name: "Rinat Fakhretdinov" },
+    ],
+  },
+  {
+    weightClass: "PESO-CORONHADA",
+    championName: "JAYZ",
+    championImage: fighterCoronhada,
+    athletes: [
+      { rank: 1, name: "Israel Adesanya" },
+      { rank: 2, name: "Sean Strickland" },
+      { rank: 3, name: "Robert Whittaker" },
+      { rank: 4, name: "Jared Cannonier" },
+      { rank: 5, name: "Marvin Vettori" },
+      { rank: 6, name: "Brendan Allen" },
+      { rank: 7, name: "Paulo Costa" },
+      { rank: 8, name: "Nassourdine Imavov" },
+      { rank: 9, name: "Jack Hermansson" },
+      { rank: 10, name: "Anthony Hernandez" },
+      { rank: 11, name: "Khamzat Chimaev" },
+      { rank: 12, name: "Michel Pereira" },
+      { rank: 13, name: "Caio Borralho" },
+      { rank: 14, name: "Roman Dolidze" },
+      { rank: 15, name: "Chris Curtis" },
+    ],
+  },
+  {
+    weightClass: "PESO-DEPENDE-QUANTO",
+    championName: "ORLANDIM",
+    championImage: fighterTagarela,
+    athletes: [
+      { rank: 1, name: "Alexandre Pantoja" },
+      { rank: 2, name: "Brandon Royval" },
+      { rank: 3, name: "Brandon Moreno" },
+      { rank: 4, name: "Amir Albazi" },
+      { rank: 5, name: "Kai Kara-France" },
+      { rank: 6, name: "Matheus Nicolau" },
+      { rank: 7, name: "Manel Kape" },
+      { rank: 8, name: "Muhammad Mokaev" },
+      { rank: 9, name: "Tim Elliott" },
+      { rank: 10, name: "Steve Erceg" },
+      { rank: 11, name: "Matt Schnell" },
+      { rank: 12, name: "Tagir Ulanbekov" },
+      { rank: 13, name: "Tatsuro Taira" },
+      { rank: 14, name: "Alex Perez" },
+      { rank: 15, name: "Namajunas" },
+    ],
+  },
 ];
 
 const Index = () => {
@@ -159,8 +254,24 @@ const Index = () => {
 
       <section className="bg-background py-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {rankingsData2.map((category, index) => (
+              <WeightClassSection
+                key={index}
+                weightClass={category.weightClass}
+                championName={category.championName}
+                championImage={category.championImage}
+                athletes={category.athletes}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-background py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {rankingsData3.map((category, index) => (
               <WeightClassSection
                 key={index}
                 weightClass={category.weightClass}
